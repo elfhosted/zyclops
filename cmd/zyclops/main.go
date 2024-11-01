@@ -10,6 +10,7 @@ import (
 	"github.com/elfhosted/zyclops/pkg/handler"
 	"github.com/elfhosted/zyclops/pkg/repository"
 	"github.com/elfhosted/zyclops/pkg/service"
+	"github.com/joho/godotenv"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/clientcmd"
 	"k8s.io/client-go/util/homedir"
@@ -50,6 +51,14 @@ func getEnvAsInt(key string, defaultValue int) int {
 		}
 	}
 	return defaultValue
+}
+
+func init() {
+	// Load .env file if it exists
+	if err := godotenv.Load(); err != nil {
+		// It's okay if .env doesn't exist, we'll use defaults
+		fmt.Printf("Notice: .env file not found, using defaults\n")
+	}
 }
 
 func main() {
