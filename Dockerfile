@@ -20,7 +20,8 @@ RUN mkdir -p /data
 ENV INDEX_PATH=/data/torrents.bleve \
     SERVER_PORT=8080 \
     SERVER_HOST="" \
-    SEARCH_ENDPOINT=/dmm/search
+    SEARCH_ENDPOINT=/dmm/search \
+    EXTERNAL_ENDPOINTS=""
 
 EXPOSE 8080
 

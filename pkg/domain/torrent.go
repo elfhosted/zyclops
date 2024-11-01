@@ -1,9 +1,9 @@
 package domain
 
 type Torrent struct {
-	Name string `json:"name"`
-	Hash string `json:"hash"`
-	Size int64  `json:"size"`
+	Name     string `json:"name"`
+	InfoHash string `json:"hash"` // This is used as the unique identifier
+	Size     int64  `json:"size"`
 }
 
 type SearchRequest struct {
