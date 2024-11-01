@@ -1,5 +1,5 @@
 # Build stage
-FROM golang:1.20-alpine AS builder
+FROM golang:latest AS builder
 
 WORKDIR /app
 COPY . .
@@ -8,7 +8,7 @@ RUN go mod download
 RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -o zyclops ./cmd/zyclops
 
 # Final stage
-FROM alpine:3.18
+FROM alpine:latest
 
 WORKDIR /app
 COPY --from=builder /app/zyclops .
